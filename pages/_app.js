@@ -1,4 +1,4 @@
-import '../styles.less'
+import '../styles.less';
 
 function MyApp({ Component, pageProps }) {
 	return <Component {...pageProps} />;
