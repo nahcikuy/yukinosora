@@ -122,7 +122,7 @@ export default class extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<Content id="editor-body">
+				<Content className="editor-body">
 					<Row gutter={16}>
 						<Col span={20}>
 							<p className="bold">Title</p>

@@ -45,17 +45,17 @@ export default class extends React.Component {
 					<script src="/javascripts/pageLoaded.js" key="pageLoaded" />
 				</Head>
 
-				<Layout id="layout">
+				<Layout className="layout">
 					<Header>
-						<div id="logo">
+						<div className="logo">
 							<span>Yuki's Secret Garden</span>
 						</div>
-						<Menu id="top-menu" mode="horizontal" theme="dark">
+						<Menu className="top-menu" mode="horizontal" theme="dark">
 							<Menu.Item>
 								<a href="/">Home</a>
 							</Menu.Item>
 							<Menu.Item>
-								<a href="/blog/page/1">Blog</a>
+								<a href="/blog/all">Blog</a>
 							</Menu.Item>
 							<Menu.Item>
 								<a href="/profile">Profile</a>
@@ -67,7 +67,7 @@ export default class extends React.Component {
 					</Header>
 					<Component {...this.props.pageProps} />
 					<Footer className="footer">
-						Copyright @人工智障少女Yuki酱 2020. Powered by&nbsp;
+						Copyright &copy; 人工智障少女Yuki酱 2020. Powered by&nbsp;
 						<a href="http://nextjs.org" target="_blank">Next.js</a> +&nbsp;
 						<a href="http://ant.design" target="_blank">Antd</a> +&nbsp;
 						<a href="http://couchdb.apache.org" target="_blank">CouchDB</a>.

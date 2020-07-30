@@ -1,19 +1,25 @@
 /**
  * Encaposulate editor.md as a react component.
- * * Properties:
+ * Properties:
  * * markdown: the iniitial markdown
+ * * editorId: the id of the editor
  * * options: the options object for editor.md
  * * onChange: callback(content): the callback when the cotent changes.
  * * onSave: callback(content): the callback when Ctrl+S is pressed.
 */
 
-import Head from 'next/head';
-import { ScriptLoader } from '../common/utils';
-
 const conf = require('../common/conf');
 
 export default class extends React.Component {
-	state = { editormd: null, content: '' };
+	constructor(props) {
+		super(props);
+		this.editorId = props.editorId || 'editormd-editor';
+		this.editorContentId = `${this.editorId}-content`;
+		this.state = {
+			editormd: null,
+			content: ''
+		};
+	}
 
 	getEditormd() {
 		return this.state.editormd;
@@ -32,6 +38,7 @@ export default class extends React.Component {
 			this.setState({
 				editormd: editormd({
 					...conf.editormd,
+					id: `${this.editorId}`,
 					markdown: this.props.markdown,
 					...this.props.options
 				})
@@ -46,7 +53,7 @@ export default class extends React.Component {
 		 */
 		const onChangeListener = () => {
 			if (!window.editorLoaded) return;
-			const newContent = $('#editormd-content').val();
+			const newContent = $(`#${this.editorContentId}`).val();
 			if (newContent !== this.state.content) {
 				this.setState({ content: newContent });
 				if (this.props.onChange)
@@ -61,18 +68,15 @@ export default class extends React.Component {
 		let ctrlKey = e.ctrlKey || e.metaKey;
 		if (ctrlKey && keyCode == 83 && this.props.onSave) {
 			e.preventDefault();
-			this.props.onSave(this.state.editormd);
+			this.props.onSave(this.state.content);
 		}
 	}
 
 	render() {
 		return (
 			<div>
-				<Head>
-					<link rel="stylesheet" href="/libs/editor.md/css/editormd.min.css" key="editormd-css" />
-				</Head>
-				<div id="editormd-editor" onKeyDown={this.handleKeyDown}>
-					<textarea id="editormd-content"></textarea>
+				<div id={this.editorId} onKeyDown={this.handleKeyDown}>
+					<textarea id={this.editorContentId}></textarea>
 				</div>
 			</div>
 		);

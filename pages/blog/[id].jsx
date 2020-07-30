@@ -29,7 +29,7 @@ export default (props) => (
 		<Sider breakpoint="lg">
 			<BlogCategorizer />
 		</Sider>
-		<Content id="blog-body">
+		<Content className="blog-body">
 			<Title level={2} className="title">{props.blog.title}</Title>
 			<MarkdownToHtml markdown={props.blog.content} />
 		</Content>

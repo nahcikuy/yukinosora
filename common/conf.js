@@ -6,7 +6,7 @@ module.exports = {
 		port: 5984
 	},
 	editormd: {
-		id: 'editormd-editor',
+		//id: 'editormd-editor',
 		height: 330,
 		htmlDecode: 'style,script,iframe',
 		//theme: 'dark',  // this won't work. why?

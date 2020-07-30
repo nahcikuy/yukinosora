@@ -49,7 +49,7 @@ export default class BlogCategorizer extends React.Component {
 		return (
 			<Menu
 				mode="inline"
-				id="blog-categorizer"
+				className="blog-categorizer"
 				onOpenChange={this.handleOpenChange}
 				openKeys={openKeys}
 				selectedKeys={selectedKeys}

@@ -62,7 +62,7 @@ body {
   font-family: "Lato-Regular";
 }
 
-#logo {
+.logo {
   width: 300px;
   float: left;
   color: red;
@@ -70,22 +70,22 @@ body {
   font-family: "BrushScriptStd";
 }
 
-#top-menu {
+.top-menu {
   float: left;
   font-weight: bold;
   font-size: 1.25em;
 }
 
-#login-status {
+.login-status {
   font-weight: bold;
   float: right;
 }
 
-#blog-body {
+.blog-body {
   padding: 30px 30px;
 }
 
-#editor-body {
+.editor-body {
   padding: 30px 30px;
 }
 
@@ -215,11 +215,40 @@ li.L9 {
   margin: 0 auto;
 }
 
-
 .pagination {
+  text-align: center;
   margin-top: 10px;
 }
 
 .menu-icon {
   font-size: 1.5em;
+}
+
+#homepage-content {
+  margin-top: 5%;
+}
+
+.ant-carousel {
+  .slick-slider {
+    * {
+      text-align: center;
+    }
+    .slick-dots {
+      li {
+        button {
+          background: #999999;
+          color: transparent;
+        }
+      }
+      li.slick-active {
+        button {
+          background-color: #999999;
+        }
+      }
+    }
+  }
+  .carousel-slider
+  {
+    margin-bottom: 20px;
+  }
 }

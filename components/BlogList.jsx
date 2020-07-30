@@ -94,7 +94,7 @@ export default class extends React.Component {
 				<Table columns={columns} dataSource={this.generateData()} pagination={false} />
 				<Pagination
 					key="blog-list-pagination"
-					className="align-text-center pagination"
+					className="pagination"
 					total={this.props.blogs.length}
 					current={this.state.currentPage}
 					pageSize={this.state.pageSize}
