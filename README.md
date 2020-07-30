@@ -10,4 +10,4 @@ Before you enter, you must know:
 - ~~Adopt Yuki and get access to the forbidden area, and then start your amazing life with her from now on!~~
 
 ## Technology Stack
-*Yukinosora* is powered by *[Next.js](https://nextjs.org)*, *[Antd](https://ant.degin)* and *[CouchDB](http://couchdb.apache.org)*.
+*Yukinosora* is powered by *[Next.js](https://nextjs.org)*, *[Antd](https://ant.design)* and *[CouchDB](http://couchdb.apache.org)*.
