@@ -29,6 +29,35 @@
   font-style: italic;
 }
 
+@font-face {
+  src: url("/fonts/DejaVuSans.ttf");
+  font-family: "DejaVuSans";
+}
+
+@font-face {
+  src: url("/fonts/DejaVuSans-Oblique.ttf");
+  font-family: "DejavuSans-Oblique";
+  font-style: italic;
+}
+
+@font-face {
+  src: url("/fonts/DejaVuSans-Bold.ttf");
+  font-family: "DejaVuSans-Bold";
+  font-weight: bold;
+}
+
+@font-face {
+  src: url("/fonts/DejaVuSans-BoldOblique.ttf");
+  font-family: "DejaVuSans-BoldOblique";
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  src: url("/fonts/DejaVuSans-ExtraLight.ttf");
+  font-family: "DejavuSans-ExtraLight";
+}
+
 body {
   font-family: "Lato-Regular";
 }
@@ -44,6 +73,7 @@ body {
 #top-menu {
   float: left;
   font-weight: bold;
+  font-size: 1.25em;
 }
 
 #login-status {
@@ -55,8 +85,7 @@ body {
   padding: 30px 30px;
 }
 
-#editor-body
-{
+#editor-body {
   padding: 30px 30px;
 }
 
@@ -73,14 +102,124 @@ body {
 
 #title-input {
   background-color: white;
-  color: black;
+  color: blue;
   margin-bottom: 10px;
 }
 
 .align-right {
-  float: right
+  float: right;
 }
 
 .align-text-right {
   text-align: right;
+}
+
+.bold {
+  font-family: "Lato-Heavy";
+}
+
+.italic {
+  font-family: "Lato-Italic";
+}
+
+.bold-italic {
+  font-family: "Lato-HeavyItalic";
+}
+
+#category-selector,
+#visibility-selector {
+  width: 100%;
+  color: blue;
+  height: 32px;
+}
+
+.invisible {
+  display: none;
+}
+
+.editormd .CodeMirror {
+  font-family: "Lato-Regular";
+}
+
+.editormd-preview-style {
+  font-family: "Lato-Regular";
+  color: #cccccc;
+  pre.prettyprint,
+  code {
+    font-family: "DejaVuSans";
+    border: 1px solid #02472d;
+    border-radius: 5px;
+    background-color: #0c0b0b;
+    color: #cccccc;
+  }
+}
+
+.editormd-preview-theme-dark {
+  .editormd-preview-container {
+    background-color: #0c1021;
+    .editormd-preview-style;
+  }
+}
+
+.editormd-html-preview {
+  background-color: black;
+  .editormd-preview-style;
+}
+
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  font-family: "DejaVuSans";
+  background-color: #0c0b0b;
+  color: inherit;
+}
+
+.pln {
+  color: inherit;
+}
+
+.markdown-body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    border-bottom: none;
+  }
+}
+
+.no-list-style {
+  list-style-type: none;
+}
+
+.align-text-center {
+  text-align: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.show-in-center {
+  margin: 0 auto;
+}
+
+
+.pagination {
+  margin-top: 10px;
+}
+
+.menu-icon {
+  font-size: 1.5em;
 }
