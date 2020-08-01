@@ -55,13 +55,13 @@ export default class extends React.Component {
 								<a href="/">Home</a>
 							</Menu.Item>
 							<Menu.Item>
-								<a href="/blog/all">Blog</a>
+								<a href="/blog/all">Archieves Hall</a>
 							</Menu.Item>
 							<Menu.Item>
-								<a href="/profile">Profile</a>
+								<a href="/profile">Information Center</a>
 							</Menu.Item>
 							<Menu.Item>
-								<a href="/info">Info</a>
+								<a href="/terminal">Terminal</a>
 							</Menu.Item>
 						</Menu>
 					</Header>

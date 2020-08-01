@@ -17,6 +17,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	return {
 		props: {
+			title: `${params.year}.${params.month < 10 ? '0' : ''}${params.month} - Yukiの秘密の花園`,
 			blogs: await blogFetcher.getList({
 				selector: {
 					$and: [

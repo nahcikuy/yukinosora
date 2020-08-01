@@ -8,10 +8,12 @@ const blogFetcher = require('../../../common/blogFetcher');
 const Editormd = dynamic(import('../../../components/Editormd'), { ssr: false });
 
 export async function getStaticProps({ params }) {
+	const blog = params.id == 'new' ? null : await blogFetcher.getBlog(params.id)
 	return {
 		props: {
+			blog,
+			title: `Recorder - ${blog ? blog.title : 'new'} -  Yukiの秘密の花園`,
 			id: params.id == 'new' ? null : params.id,
-			blog: params.id == 'new' ? null : await blogFetcher.getBlog(params.id),
 			categories: await blogFetcher.getCategories()
 		}
 	}

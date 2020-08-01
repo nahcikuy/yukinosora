@@ -8,7 +8,8 @@ const blogFetcher = require('../../common/blogFetcher');
 export async function getStaticProps() {
 	return {
 		props: {
-			blogs: await blogFetcher.getList()
+			blogs: await blogFetcher.getList(),
+			title: 'Archieves Hall - Yukiの秘密の花園'
 		}
 	}
 }

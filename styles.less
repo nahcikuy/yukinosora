@@ -95,9 +95,9 @@ body {
 }
 
 .footer {
-  font-family: "Lato-HeavyItalic";
   text-align: center;
   color: pink;
+  .bold-italic;
 }
 
 #title-input {
@@ -115,14 +115,18 @@ body {
 }
 
 .bold {
+  font-weight: bold;
   font-family: "Lato-Heavy";
 }
 
 .italic {
+  font-style: italic;
   font-family: "Lato-Italic";
 }
 
 .bold-italic {
+  font-weight: bold;
+  font-style: italic;
   font-family: "Lato-HeavyItalic";
 }
 
@@ -249,6 +253,22 @@ li.L9 {
   }
   .carousel-slider
   {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
+}
+
+.card {
+  width: 30%;
+  float: left;
+  height: 280px;
+  margin-left: 2%;
+}
+
+.card-group {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.delete-line {
+  text-decoration: line-through;
 }

@@ -9,7 +9,6 @@
 const conf = require('../common/conf');
 
 export default class extends React.Component {
-	state = { a: '3' };
 	constructor(props) {
 		super(props);
 		this.markdownContainerId = this.props.markdownCotainerId || 'markdown-container';
@@ -33,7 +32,6 @@ export default class extends React.Component {
 				<div id={this.markdownContainerId}>
 					<textarea className="invisible" defaultValue={this.props.markdown}></textarea>
 				</div>
-				<div>{this.state.a}</div>
 			</div>
 		)
 	}
