@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Fterminal","\u002Fprofile","\u002F","\u002Fblog\u002Fall","\u002Fadmin\u002Frecorder\u002F[id]","\u002Fblog\u002Fcategories\u002F[category]","\u002Fblog\u002Ftimeline\u002F[year]\u002F[month]","\u002Fblog\u002F[id]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

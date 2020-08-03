@@ -2,19 +2,26 @@ const covi = require('./covi');
 
 /**
  * Fetch a list of blogs.
+ * @param {boolean} [showPrivateBlog] specify whether the private blogs will be fetched.
+ * If *query* is given and *selector* property is specified, this param will be ignored.
  * @param {object|null} [query] the query object that will be sent to CouchDB. 
  * There's a default value, see the implementation for details.
+ * 
  * @returns {Array<object>} the list of the blogs
  */
 
-async function getList(query) {
+async function getList(showPrivateBlog = false, query) {
 	query = {
-		selector: {
-			$and: [
-				{ $not: { _id: 'nextBlogId' } },
-				{ visibility: true }
-			]
-		},
+		selector: showPrivateBlog ?
+			{
+				$not: { _id: 'nextBlogId' }
+			} :
+			{
+				$and: [
+					{ $not: { _id: 'nextBlogId' } },
+					{ visibility: true }
+				]
+			},
 		//sort: ['_id'],
 		limit: 8192,
 		fields: ['_id', 'category', 'createdTime', 'lastUpdatedTime', 'title'],
@@ -22,6 +29,7 @@ async function getList(query) {
 	};
 	const blogs = (await covi('/blogs/_find', 'POST', query)).docs;
 	blogs.sort((a, b) => Number(a._id) - Number(b._id));
+	console.log(blogs);
 	return blogs;
 }
 
@@ -41,12 +49,17 @@ async function getBlog(id) {
 
 /**
  * Fetch the categories.
+ * @param {boolean} showPrivateBlog
+ * specify whether the categories of private blogs should be fetched
+ * @param {object|null} [query]
+ * The query object that will be sent to CouchDB. The default value
+ * is the same as that in *getList*.
  * @returns {Array<string>} an array contains the categories.
  */
 
-async function getCategories() {
+async function getCategories(showPrivateBlog = false, query) {
 	let categories = [];
-	const blogs = await getList();
+	const blogs = await getList(showPrivateBlog, query);
 	for (const blog of blogs) {
 		if (!categories.includes(blog.category))
 			categories.push(blog.category);

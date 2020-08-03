@@ -14,13 +14,13 @@ export async function getStaticProps({ params }) {
 			blog,
 			title: `Recorder - ${blog ? blog.title : 'new'} -  Yukiの秘密の花園`,
 			id: params.id == 'new' ? null : params.id,
-			categories: await blogFetcher.getCategories()
+			categories: await blogFetcher.getCategories(true)
 		}
 	}
 }
 
 export async function getStaticPaths() {
-	const blogs = await blogFetcher.getList();
+	const blogs = await blogFetcher.getList(true);
 	let paths = [{ params: { id: 'new' } }];
 	for (const blog of blogs)
 		paths.push({ params: { id: blog._id } });

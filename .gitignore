@@ -29,6 +29,13 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# others
+# vs code
 .vscode
+
+# vercel
+vercel.json
+.vercel
+
+# others
 test*
+

@@ -67,10 +67,16 @@ export default class extends React.Component {
 					</Header>
 					<Component {...this.props.pageProps} />
 					<Footer className="footer">
-						Copyright &copy; 人工智障少女Yuki酱 2020. Powered by&nbsp;
-						<a href="http://nextjs.org" target="_blank">Next.js</a> +&nbsp;
-						<a href="http://ant.design" target="_blank">Antd</a> +&nbsp;
-						<a href="http://couchdb.apache.org" target="_blank">CouchDB</a>.
+						<p>Copyright &copy; 人工智障少女Yuki酱 2020. </p>
+						
+						<p>
+							Powered by&nbsp;
+							<a href="http://nextjs.org" target="_blank">Next.js</a> +&nbsp;
+							<a href="http://ant.design" target="_blank">Antd</a> +&nbsp;
+							<a href="http://couchdb.apache.org" target="_blank">CouchDB</a>.
+						</p>
+						<p>Deployed by <a href="http://vercel.com" target="_blank">Vercel</a>.</p>
+						<p><a href="https://github.com/nahcikuy/yukinosora" target="_blank">Github Page</a></p>
 					</Footer>
 				</Layout>
 			</div>
