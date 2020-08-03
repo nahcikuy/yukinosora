@@ -9,15 +9,19 @@ export async function getStaticProps() {
 	return {
 		props: {
 			blogs: await blogFetcher.getList(),
-			title: 'Archieves Hall - Yukiの秘密の花園'
+			title: 'Archieves Hall - Yukiの秘密の花園',
+			...await BlogCategorizer.initialize()
 		}
 	}
 }
 
 export default (props) => (
 	<Layout>
-		<Sider>
-			<BlogCategorizer />
+		<Sider breakpoint="lg">
+			<BlogCategorizer
+				groupedBlogs={props.groupedBlogs}
+				timeline={props.timeline}
+			/>
 		</Sider>
 		<Content>
 			<BlogList blogs={props.blogs} />

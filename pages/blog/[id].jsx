@@ -11,7 +11,8 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			blog: blog,
-			title: blog ? blog.title : 'Failed to load blog'
+			title: blog ? blog.title : 'Failed to load blog',
+			...await BlogCategorizer.initialize()
 		}
 	};
 }
@@ -27,7 +28,10 @@ export async function getStaticPaths() {
 export default (props) => (
 	<Layout>
 		<Sider breakpoint="lg">
-			<BlogCategorizer />
+			<BlogCategorizer
+				groupedBlogs={props.groupedBlogs}
+				timeline={props.timeline}
+			/>
 		</Sider>
 		<Content className="blog-body">
 			<Title level={2} className="title">{props.blog.title}</Title>

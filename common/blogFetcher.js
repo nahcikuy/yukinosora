@@ -83,7 +83,7 @@ async function getGroupedBlogsList() {
  */
 
 async function timelineGenerator() {
-	let timeline = [];
+	let timeline = {};
 	const blogs = await getList();
 	for (const blog of blogs) {
 		const createdTime = blog.createdTime;

@@ -34,15 +34,20 @@ export async function getStaticProps({ params }) {
 			}),
 			year: params.year,
 			month: params.month,
-			pageIdStorage: `pageIdIn${params.year}${params.month}`
+			pageIdStorage: `pageIdIn${params.year}${params.month}`,
+			...await BlogCategorizer.initialize()
 		}
 	}
 }
 
 export default (props) => (
 	<Layout>
-		<Sider>
-			<BlogCategorizer selectedKeys={[`${props.year}.${props.month}`]} />
+		<Sider breakpoint="lg">
+			<BlogCategorizer
+				groupedBlogs={props.groupedBlogs}
+				timeline={props.timeline}
+				selectedKeys={[`${props.year}.${props.month}`]} 
+			/>
 		</Sider>
 		<Content>
 			<BlogList blogs={props.blogs} pageIdStorage={props.pageIdStorage} />

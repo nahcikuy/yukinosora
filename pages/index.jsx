@@ -50,7 +50,7 @@ export default () => {
 							</Card>
 							<Card title="Authentication" className="card">
 								<p>您可以自由修改、转发这里的所有内容。</p>
-								<p>唯一的限制是转载时请务必保留出处。</p>
+								<p>唯一的限制是转载时请务必注明出处。</p>
 							</Card>
 							<Card title="Adoption" className="card">
 								<p className="delete-line">领养Yuki以获得<span class="italic">禁忌领域</span>的访问权限</p>

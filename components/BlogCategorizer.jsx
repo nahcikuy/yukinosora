@@ -2,6 +2,8 @@
  * The blog categorizer component
  * 
  * Properties:
+ * * groupedBlogs: the list of grouped blogs
+ * * timeline: the generated timeline
  * * selectedKeys: the selected keys in the menu
  */
 
@@ -10,22 +12,49 @@ import { FolderTwoTone, FolderOpenTwoTone, FileZipTwoTone } from '@ant-design/ic
 const blogFetcher = require('../common/blogFetcher');
 
 export default class BlogCategorizer extends React.Component {
+	/**
+	 * Fetch the list of the grouped blogs and timeline.
+	 * Please call this function in *getStaticProps* and covery the result as *prop* to this component, e.g:
+	 * 
+	 * ```
+	 * 	// in getStaticProps()
+	 * 	return { 
+	 * 		props: {
+	 * 			...await BlogCategorizer.initialize()
+	 * 		}
+	 *	}
+	 * ```
+	 * 
+	 * and then use *BlogCategorizer* with
+	 * 
+	 * ```
+	 * 	<BlogCategorizer
+	 * 		groupedBlogs={props.groupedBlogs}
+	 * 		timeline={props.timeline}
+	 *	/>
+	 * ```
+	 * 
+	 * @returns {object}
+	 * * groupedBlogs: the list of the grouped blogs
+	 * * timeline: the timeline generated
+	 */
+
+	static async initialize() {
+		const groupedBlogs = await blogFetcher.getGroupedBlogsList();
+		const timeline = await blogFetcher.timelineGenerator();
+		return { groupedBlogs, timeline };
+	}
+
 	constructor(props) {
 		super(props);
-		this.state = {
-			groupedBlogs: [],
-			timeline: [],
-			openKeys: [],
-			selectedKeys: props.selectedKeys || []
-		};
 		const openKeys = ['categories', 'timeline'];
-		blogFetcher.getGroupedBlogsList()
-			.then((groupedBlogs) => this.setState({ groupedBlogs }));
-		blogFetcher.timelineGenerator()
-			.then((timeline) => {
-				for (const year of Object.keys(timeline)) openKeys.push(`${year}`);
-				this.setState({ timeline, openKeys });
-			});
+		const selectedKeys = props.selectedKeys;
+		for (const year of Object.keys(props.timeline)) openKeys.push(`${year}`);
+
+		this.state = {
+			openKeys,
+			selectedKeys
+		};
 	}
 
 	handleOpenChange = (openKeys) => {
@@ -41,11 +70,12 @@ export default class BlogCategorizer extends React.Component {
 		 * * Timeline/[year]/[month]: [year].[month]
 		 */
 
-		const groupedBlogs = this.state.groupedBlogs;
-		const timeline = this.state.timeline;
+		const groupedBlogs = this.props.groupedBlogs;
+		const timeline = this.props.timeline;
+		const menuIconStyle = { fontSize: '1.25em' };
 		const openKeys = this.state.openKeys;
 		const selectedKeys = this.state.selectedKeys;
-		const menuIconStyle = { fontSize: '1.25em' };
+
 		return (
 			<Menu
 				mode="inline"
