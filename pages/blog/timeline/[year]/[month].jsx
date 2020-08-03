@@ -18,7 +18,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			title: `${params.year}.${params.month < 10 ? '0' : ''}${params.month} - Yukiの秘密の花園`,
-			blogs: await blogFetcher.getList({
+			blogs: await blogFetcher.getList(false, {
 				selector: {
 					$and: [
 						{ $not: { _id: 'nextBlogId' } },
@@ -46,7 +46,7 @@ export default (props) => (
 			<BlogCategorizer
 				groupedBlogs={props.groupedBlogs}
 				timeline={props.timeline}
-				selectedKeys={[`${props.year}.${props.month}`]} 
+				selectedKeys={[`${props.year}.${props.month}`]}
 			/>
 		</Sider>
 		<Content>

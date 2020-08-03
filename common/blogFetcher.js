@@ -29,7 +29,6 @@ async function getList(showPrivateBlog = false, query) {
 	};
 	const blogs = (await covi('/blogs/_find', 'POST', query)).docs;
 	blogs.sort((a, b) => Number(a._id) - Number(b._id));
-	console.log(blogs);
 	return blogs;
 }
 

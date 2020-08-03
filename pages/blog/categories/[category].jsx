@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			title: `${params.category} - Yukiの秘密の花園`,
-			blogs: await blogFetcher.getList({
+			blogs: await blogFetcher.getList(false, {
 				selector: {
 					$and: [
 						{ $not: { _id: 'nextBlogId' } },
