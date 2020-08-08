@@ -1,7 +1,7 @@
 # Yukinosora
 Yuki's secret garden here!
 
-**Entrance**: www.yukinosora.com
+**Entrance**: https：//www.yukinosora.com
 
 This is a beta version, and more functions are still being developed.
 
