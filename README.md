@@ -1,4 +1,14 @@
 # Yukinosora
+
+## WARNING
+*Updated on 2021.08.25*
+
+This repository will be deprecated soon.
+The site will be rebuilt and migrated to the new repo.
+
+---
+
+<br/> <br/> <br/> <br/>
 Yuki's secret garden here!
 
 **[Entrance](https://yukinosora.com)**
